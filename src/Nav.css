@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Raleway:wght@300;400;600;900&display=swap');
+
+.nav h1, h2 {
+    font-family: 'Caudex', serif;
+    margin: 0;
+}
+
+.nav h3, h4, p, label, input, button {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 5%;
+}
+
+.nav h1 {
+    flex-grow: 1;
+    
+}
