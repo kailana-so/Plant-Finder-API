@@ -1,8 +1,8 @@
-import './Search.css'
+import './ImageSearch.css'
 import { useState } from 'react'
 import PlantCard from './PlantCard.js'
 
-export default function Search() {
+export default function ImageSearch() {
 
     // create a useState component to hold the file temp - not needed right tbh
     const [selectedFile, setSelectedFile] = useState(null)
@@ -26,7 +26,7 @@ export default function Search() {
                 reader.readAsDataURL(file)
             })
         })
-        console.log('promises made')
+        console.log('promises made...')
 
         Promise.all(promises).then((base64files) => {
             // console.log(base64files)
@@ -59,26 +59,26 @@ export default function Search() {
 
     console.log(searchResults)
 
+    // remove search function once you diplay the results
     return (
-        <section className="search">
-            <section>
-                <form className="image-search">
-                <div>
-                    <input type="file" onChange={(e) => setSelectedFile(e.target.files[0])}/>
-                    <button className="search-btn" type="button" onClick={handleSendIdentification} >search</button>
-                </div>
-                </form>
-            </section>
+
+        <section className="image-search">
+            <form className="image-search-form">
+            <div>
+                <input type="file" onChange={(e) => setSelectedFile(e.target.files[0])}/>
+                <button className="search-btn" type="button" onClick={handleSendIdentification} >search</button>
+            </div>
+            </form>
+            <h5> {searchResults === undefined ? "" : `Showing ${searchResults.length} matches`}  </h5>
 
             {/* INDIVIDUAL PLANT COMPONENTS */}
             {/* show number of results searchResults.length  */}
 
             {/* if the the array is undefined display "please wait" else display the items */}
             {searchResults === undefined 
-            ? "Please wait a few seconds for the results to appear"
+            ? ""
             : searchResults.map((result, idx) => ( <PlantCard className="card" result={result} id={idx} key={idx}/> ))
             }
-
         </section>
     )
 }

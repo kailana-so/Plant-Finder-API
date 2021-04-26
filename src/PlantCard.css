@@ -1,6 +1,7 @@
 .card .image-wrapper {
     display: flex;
     justify-content: space-between;
+    justify-content: center;
 }
 .card .image-wrapper img {
     width: 45%;
@@ -14,7 +15,7 @@
     transition: all 0.3s ease-in-out;
     padding: 5%;
     margin: 5% 15%;
-    border: 2px solid #C4C4C4;
+    border-radius: 15px;
 }
 
 .card:hover {
