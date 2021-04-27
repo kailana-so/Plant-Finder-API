@@ -1,19 +1,22 @@
 import './ImageCard.css'
 import { useState } from 'react'
+import { Button, Confirm } from "semantic-ui-react";
+import { Link } from 'react-router-dom'
+
+
 const axios = require('axios')
+
 
 export default function PlantCard(props) {
     // console.log(props)
 
-    const [ searchResults, setSearchResults ] = useState(props)
+    const [ state, setState ] = useState({ open: false })
     const [ location, setLocation ] = useState()
-
+    console.log(location)
 
     const handleInsertToDb = () => {
         console.log('button clicked')
-        // console.log(searchResults)
-        // console.log(location)
-        // console.log(props.result.plant_name)
+        console.log(props.id)
         
         navigator.geolocation.getCurrentPosition(
             (position) => {
@@ -33,17 +36,13 @@ export default function PlantCard(props) {
 		)
     
     }
-    // const getUserLocation = () => { /// this is a custom obj so to work with it pull out the data and store it first
-    //     navigator.geolocation.getCurrentPosition(
-    //         (position) => {
-    //             setLocation({
-    //                     lat:[position.coords.latitude], 
-    //                     lng:[position.coords.longitude]
-    //             })
-    //         }
-	// 	)
-    // //     setTimeout(handleInsertToDb, 8000)
-    // }
+
+    const show = () => setState({ open: true })
+    const handleConfirm = () => {
+        setState({ open: false })
+        handleInsertToDb()
+    }
+    const handleCancel = () => setState({ open: false })
 
     return (
         <section className="image-card">
@@ -72,10 +71,17 @@ export default function PlantCard(props) {
             </section>
 
             {/* when the user list the marking grab the geo location */}
-            <button onClick={handleInsertToDb}> mark as a sighting</button>
-            {/* <p>{location === undefined 
-            ? "loading location" 
-            : location.lat[0] + "and" + location.lng[1]}</p> */}
+            <footer>
+                <Button onClick={show}>Mark sighting</Button>
+                    <Confirm
+                        className="confirm-dialog"
+                        open={state.open}
+                        cancelButton="no"
+                        confirmButton="yes"
+                        onCancel={handleCancel}
+                        onConfirm={handleConfirm}
+                    />
+            </footer>
         </section>
     )
 }

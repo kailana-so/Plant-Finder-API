@@ -1,12 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&family=Raleway:wght@300;400;600;900&display=swap');
 
-.nav h1, h2 {
+.nav h1 {
     font-family: 'Caudex', serif;
     margin: 0;
     font-size: xx-large;
 }
 
-.nav h3, h4, p, label, input, button {
+h2 {
+    font-family: 'Caudex', serif;
+    margin: 0;
+    font-size: xx-large
+}
+
+h3, h4, p, label, input, button {
     font-family: 'Raleway', sans-serif !important;
 }
 
