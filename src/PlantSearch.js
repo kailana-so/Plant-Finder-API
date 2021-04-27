@@ -1,8 +1,9 @@
 import './PlantSearch.css'
 import { useState } from 'react'
-import Card from './Card.js'
+import PlantCard from './PlantCard.js'
 const axios = require('axios')
 
+// this is doing a direct inout search with isn't very good. refactor it to pul all the data dn then process it client side you you can do more natural  queries
 
 export default function PlantSearch() {
 
@@ -41,7 +42,7 @@ export default function PlantSearch() {
 
             </div>
                 <section>
-                    {results.length === 0 ? "" : <Card results={results}/> }
+                    {results.length === 0 ? "" : <PlantCard results={results}/> }
 
                 </section>
         </section>

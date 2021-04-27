@@ -1,12 +1,12 @@
 import './ImageSearch.css'
 import { useState } from 'react'
-import PlantCard from './PlantCard.js'
+import ImageCard from './ImageCard.js'
 
 export default function ImageSearch() {
 
     // create a useState component to hold the file temp - not needed right tbh
-    const [selectedFile, setSelectedFile] = useState(null)
-    console.log(selectedFile)
+    // const [selectedFile, setSelectedFile] = useState(null)
+    // console.log(selectedFile)
 
     // create a useState component to hold the results!
     const [searchResults, setSearchResults] = useState()
@@ -42,10 +42,10 @@ export default function ImageSearch() {
             }) 
             .then(response => response.json()) 
             .then(data => { //this is where the data comes back to the client
-                console.log('Success:', data)
-                console.log(data)
+                // console.log('Success:', data)
+                // console.log(data)
                 const results = data.suggestions
-                console.log(results)
+                // console.log(results)
 
                 // save the results to use then as a value in you component
                 setSearchResults(results)
@@ -57,7 +57,7 @@ export default function ImageSearch() {
         })
     }
 
-    console.log(searchResults)
+    // console.log(searchResults)
 
     // remove search function once you diplay the results
     return (
@@ -65,7 +65,7 @@ export default function ImageSearch() {
         <section className="image-search">
             <form className="image-search-form">
             <div>
-                <input type="file" onChange={(e) => setSelectedFile(e.target.files[0])}/>
+                <input type="file"/>
                 <button className="search-btn" type="button" onClick={handleSendIdentification} >search</button>
             </div>
             </form>
@@ -77,7 +77,7 @@ export default function ImageSearch() {
             {/* if the the array is undefined display "please wait" else display the items */}
             {searchResults === undefined 
             ? ""
-            : searchResults.map((result, idx) => ( <PlantCard className="card" result={result} id={idx} key={idx}/> ))
+            : searchResults.map((result, idx) => ( <ImageCard className="card" result={result} id={idx} key={idx}/> ))
             }
         </section>
     )
