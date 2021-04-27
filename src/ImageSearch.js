@@ -17,7 +17,7 @@ export default function ImageSearch() {
         console.log('trigger use effect hook');
 
         setTimeout(() => {
-        setMessage("Upload an image and I\'ll try ID it");
+        setMessage("Upload an image and I'll try ID it");
         }, 2000)
 
     })

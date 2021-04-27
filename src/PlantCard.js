@@ -1,7 +1,7 @@
 import './PlantCard.css'
 
 export default function PlantCard(props) {
-    // console.log(props.results)
+    console.log(props)
     return (
         <section className="plant-card">
             <h2>{props.results.plant_name}</h2>
