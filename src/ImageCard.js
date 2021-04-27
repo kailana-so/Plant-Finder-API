@@ -71,8 +71,8 @@ export default function PlantCard(props) {
                 <img src={props.result.similar_images[1].url} alt=""/>
             </section>
 
-            {/* when the user list the marking grabb the geo location */}
-            <button onClick={handleInsertToDb}> mark location </button>
+            {/* when the user list the marking grab the geo location */}
+            <button onClick={handleInsertToDb}> mark as a sighting</button>
             {/* <p>{location === undefined 
             ? "loading location" 
             : location.lat[0] + "and" + location.lng[1]}</p> */}

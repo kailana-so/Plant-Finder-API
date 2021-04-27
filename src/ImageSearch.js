@@ -1,5 +1,5 @@
 import './ImageSearch.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ImageCard from './ImageCard.js'
 
 export default function ImageSearch() {
@@ -10,6 +10,17 @@ export default function ImageSearch() {
 
     // create a useState component to hold the results!
     const [searchResults, setSearchResults] = useState()
+
+    const [message, setMessage] = useState('Hi there!');
+
+    useEffect(() => {
+        console.log('trigger use effect hook');
+
+        setTimeout(() => {
+        setMessage("Upload an image and I\'ll try ID it");
+        }, 2000)
+
+    })
     
     const handleSendIdentification = () => {
 
@@ -63,6 +74,7 @@ export default function ImageSearch() {
     return (
 
         <section className="image-search">
+            {message}
             <form className="image-search-form">
             <div>
                 <input type="file"/>
